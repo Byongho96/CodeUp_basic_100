@@ -59,15 +59,16 @@ n은 10이하의 자연수이고 x, y 좌표는 1 ~ 19 까지이며, 똑같은 �
 '''
 import sys
 
-dol_list = []
+board = [[0 for j in range(19)] for i in range(19)] # 바둑판 초기화
 
-while True:
-  try:
-    one_line = list(map(int, sys.stdin.readline().split()))
-    dol_list.append(one_line)
-  except:
-    break
+T = int(sys.stdin.readline())
 
-for i in dol_list:
-  for j in dol_list[i]:
-    print(dol_list[i][j])
+for _ in range(T): # 입력값만큼 반복
+  x, y = map(int, sys.stdin.readline().split())
+  board[x - 1][y - 1] = 1   # 문제 오류라고 생각: 이런 식으로 할꺼면 x,y좌표가 아니라 행,렬이라고 출제했어야 함
+
+for i in board:
+  for j in i:
+    print(j, end=' ')
+  print()
+
