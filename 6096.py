@@ -23,20 +23,21 @@ board = []
 for _ in range(19): # 19*19의 바둑판 배열을 받아들임
     board.append(list(map(int, sys.stdin.readline().split())))
 
-T = map(int, sys.stdin.readline().split())
+T = int(sys.stdin.readline())
 
 # 십자 뒤집기
 for _ in range(T):
+    x, y = map(int, sys.stdin.readline().split())
     for i in range(19):
         if board[i][y-1]:
-            board[i][y-1] = 1
-        else:
             board[i][y-1] = 0
+        else:
+            board[i][y-1] = 1
     for j in range(19):
         if board[x-1][j]:
-            board[x-1][j] = 1
-        else:
             board[x-1][j] = 0
+        else:
+            board[x-1][j] = 1
 
 # 프린트
 for i in board:
